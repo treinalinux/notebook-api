@@ -5,6 +5,7 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
 
+    # render json: @contacts, status: :partial_content
     render json: @contacts
   end
 
