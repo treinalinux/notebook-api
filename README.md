@@ -57,7 +57,12 @@ rails db:drop db:create db:migrate dev:setup
 
 ## Create new contact with kind_id
 ```bash
+##
 curl http://127.0.0.1:3000/contacts -i -v -X POST -H "Content-Type: application/json" -d '{ "name": "alanalves","email": "alanalves@empresa.corp", "birthdate":"2002-05-27", "kind_id":3 }'
+
+##
+curl http://127.0.0.1:3000/contacts/101 -i -v
+
 ```
 
 

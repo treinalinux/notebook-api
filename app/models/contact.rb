@@ -2,7 +2,8 @@
 
 # Class  Contact
 class Contact < ApplicationRecord
-  belongs_to :kind, optional: true
+  # belongs_to :kind, optional: true
+  belongs_to :kind
 
   # def author
   #   'Alan Alves'
