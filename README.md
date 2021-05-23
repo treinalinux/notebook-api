@@ -22,6 +22,7 @@ rails g migration add_kind_to_contact kind:references
 rails db:migrate
 ```
 
+## Creating data of tests on task dev setup
 ```bash
 rails db:drop db:create db:migrate dev:setup
 ```
