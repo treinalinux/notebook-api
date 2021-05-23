@@ -5,12 +5,21 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
 
+    # render json: @contacts
+    # render json: @contacts, status: :partial_content
+    # render json: @contacts, root: true
+    # render json: @contacts, only: [:name, :email]
+    # render json: @contacts, except: [:name, :email]
+    # render json: @contacts.map { |contact| contact.attributes.merge({ author: "Moisés" }) }
+    # render json: @contacts, methods: :author
     # render json: @contacts, status: :partial_content
     render json: @contacts
   end
 
   # GET /contacts/1
   def show
+    # render json: @contact
+    # render json: @contact.attributes.merge({ author: "Moisés" })
     render json: @contact
   end
 
