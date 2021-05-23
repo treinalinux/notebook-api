@@ -65,6 +65,17 @@ curl http://127.0.0.1:3000/contacts/101 -i -v
 
 ```
 
+## Creating model Phone references contact
+```bash
+rails g model Phone number:string contact:references
+```
+
+## Recreate new tasks for phone
+```bash
+vim lib/tasks/dev.rake
+
+rails db:drop db:create db:migrate dev:setup --trace
+```
 
 ---
 This README would normally document whatever steps are necessary to get the
