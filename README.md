@@ -22,6 +22,11 @@ rails g migration add_kind_to_contact kind:references
 rails db:migrate
 ```
 
+```bash
+rails db:drop db:create db:migrate dev:setup
+```
+
+---
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
