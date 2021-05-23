@@ -11,6 +11,34 @@ rails g scaffold Contact name:string email:string birthdate:date
 rails db:migrate
 ```
 
+## Working cURL
+```bash
+# See all contacts
+ curl http://127.0.0.1:3000/contacts
+
+# See the contact 1
+ curl http://127.0.0.1:3000/contacts/1
+
+# See the contact 1 with verbose
+ curl http://127.0.0.1:3000/contacts/1 -v
+
+# See the contact 1 with verbose use verb
+ curl http://127.0.0.1:3000/contacts/1 -v -X GET
+
+# Create a new contact use verb POST in json
+curl http://127.0.0.1:3000/contacts -i -v -X POST -H "Content-Type: application/json" -d '{"name": "alanalves","email": "alanalves@empresa.corp"}'
+
+# Updating the contact use verb PATCH
+curl http://127.0.0.1:3000/contacts/101 -i -v -X PATCH -H "Content-Type: application/json" -d '{"name": "alansilva","email": "alan@empresa.corp"}'
+
+# See new contact 101
+ curl http://127.0.0.1:3000/contacts/101
+
+# Deleting a contact use verb DELETE
+ curl http://127.0.0.1:3000/contacts/101 -i -v -X DELETE
+
+```
+
 ## Creating new scaffold for type
 ```bash
 rails g scaffold Kind description:string
