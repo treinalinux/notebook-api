@@ -77,6 +77,14 @@ vim lib/tasks/dev.rake
 rails db:drop db:create db:migrate dev:setup --trace
 ```
 
+## Serializer added on project
+
+```bash
+rails g serializer contact
+rails g serializer kind
+
+```
+
 ---
 This README would normally document whatever steps are necessary to get the
 application up and running.
