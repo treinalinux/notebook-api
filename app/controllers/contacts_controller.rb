@@ -26,7 +26,9 @@ class ContactsController < ApplicationController
     # render json: @contact
     # render json: @contact.attributes.merge({ author: "Moises" })
     # render json: @contact.to_br
-    render json: @contact, include: %i[kind phones address]
+    #
+    # render json: @contact, include: %i[kind phones address]
+    render json: @contact, include: [:kind]
   end
 
   # POST /contacts
