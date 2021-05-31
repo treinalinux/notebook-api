@@ -28,7 +28,7 @@ class ContactsController < ApplicationController
     # render json: @contact.to_br
     #
     # render json: @contact, include: %i[kind phones address]
-    render json: @contact, include: [:kind]
+    render json: @contact, include: [:kind] # , meta: { author: 'Alan da Silva Alves' }
   end
 
   # POST /contacts
