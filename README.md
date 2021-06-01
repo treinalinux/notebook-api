@@ -85,6 +85,14 @@ rails g serializer kind
 
 ```
 
+## Mine/Media Types - locked call with header only "Accept: application/vnd.api+json"
+
+```bash
+curl http://127.0.0.1:3000/contacts/4 -H "Accept: application/vnd.api+json" -v
+
+curl http://127.0.0.1:3000/contacts -H "Accept: application/vnd.api+json" -v
+```
+
 ---
 This README would normally document whatever steps are necessary to get the
 application up and running.
