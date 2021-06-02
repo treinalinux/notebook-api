@@ -93,6 +93,13 @@ curl http://127.0.0.1:3000/contacts/4 -H "Accept: application/vnd.api+json" -v
 curl http://127.0.0.1:3000/contacts -H "Accept: application/vnd.api+json" -v
 ```
 
+## relationships and routes belongs_to
+
+```bash
+curl http://127.0.0.1:3000/contacts -H "Accept: application/vnd.api+json" -v
+
+curl http://localhost:3000/contacts/4/relationships/kind -H "Accept: application/vnd.api+json"
+```
 ---
 This README would normally document whatever steps are necessary to get the
 application up and running.
