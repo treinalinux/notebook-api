@@ -100,6 +100,26 @@ curl http://127.0.0.1:3000/contacts -H "Accept: application/vnd.api+json" -v
 
 curl http://localhost:3000/contacts/4/relationships/kind -H "Accept: application/vnd.api+json"
 ```
+
+## CRUD AMS with has_one(address)
+
+```bash
+
+curl http://localhost:3000/contacts/100/address -X DELETE -H "Accept: application/vnd.api+json"
+
+curl http://localhost:3000/contacts/100/address -X DELETE -H "Accept: application/vnd.api+json"
+
+curl http://localhost:3000/contacts/100/address -H "Accept: application/vnd.api+json"
+
+```
+
+## CRUD AMS with has_many(phones)
+
+```bash
+
+curl http://localhost:3000/contacts/99/phones -H "Accept: application/vnd.api+json"
+
+```
 ---
 This README would normally document whatever steps are necessary to get the
 application up and running.
