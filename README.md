@@ -141,6 +141,15 @@ curl http://localhost:3000/kinds -v -I -H "Accept: application/vnd.api+json" -u 
 
 ```
 
+## Authenticate Http with Token
+
+```bash
+
+curl http://localhost:3000/kinds -H "Accept: application/vnd.api+json" -H "Authorization: Token secret123456"
+
+curl http://localhost:3000/kinds -v -I -H "Accept: application/vnd.api+json" -H "Authorization: Token secret123456"
+
+```
 ---
 This README would normally document whatever steps are necessary to get the
 application up and running.
