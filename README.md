@@ -120,6 +120,27 @@ curl http://localhost:3000/contacts/100/address -H "Accept: application/vnd.api+
 curl http://localhost:3000/contacts/99/phones -H "Accept: application/vnd.api+json"
 
 ```
+
+## Authenticate Http Basic used Base64
+
+```bash
+
+curl http://localhost:3000/kinds -v -I -H "Accept: application/vnd.api+json" -u alan:secret
+
+curl http://localhost:3000/kinds -v -I -H "Accept: application/vnd.api+json" -u alan:secreterror
+
+curl http://localhost:3000/kinds -v -I -H "Accept: application/vnd.api+json" -u alan:secret
+
+```
+
+## Authenticate Http with Digest used MD5
+
+```bash
+
+curl http://localhost:3000/kinds -v -I -H "Accept: application/vnd.api+json" -u alan:secret --digest
+
+```
+
 ---
 This README would normally document whatever steps are necessary to get the
 application up and running.
