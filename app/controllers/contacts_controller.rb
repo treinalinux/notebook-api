@@ -6,7 +6,14 @@ class ContactsController < ApplicationController
 
   # GET /contacts
   def index
-    @contacts = Contact.all
+    # contacts = Contact.all
+    # This is form for work with version, but weak of use
+    case params[:version]
+    when '1'
+      @contacts = Contact.all
+    when '2'
+      @contacts = Contact.last(5).reverse
+    end
 
     # render json: @contacts
     # render json: @contacts, status: :partial_content
