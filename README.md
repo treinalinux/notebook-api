@@ -235,6 +235,16 @@ You saw that the token return data are different and if you look at the terminal
 
 ```
 
+## Working Version
+
+### Working query parameter for version
+
+```bash
+
+curl http://localhost:3000/contacts\?version\=1 -H "Accept: application/vnd.api+json"
+
+curl http://localhost:3000/contacts\?version\=2 -H "Accept: application/vnd.api+json"
+```
 
 
 

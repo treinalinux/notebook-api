@@ -7,6 +7,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   def index
     # contacts = Contact.all
+    #
     # This is form for work with version, but weak of use
     case params[:version]
     when '1'
