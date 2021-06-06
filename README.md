@@ -150,6 +150,94 @@ curl http://localhost:3000/kinds -H "Accept: application/vnd.api+json" -H "Autho
 curl http://localhost:3000/kinds -v -I -H "Accept: application/vnd.api+json" -H "Authorization: Token secret123456"
 
 ```
+
+## Authorization with devise
+
+### Register with curl
+
+```bash
+
+curl http://localhost:3000/auth -X POST -H "Accept: application/vnd.api+json" -H "Content-Type: application/json" -d '{ "email": "alanlogin@empresa.corp", "password": "12345678", "password_confirmation": "12345678" }' 
+#
+# Result from command curl
+# {"status":"success","data":{"email":"alanlogin@empresa.corp","uid":"alanlogin@empresa.corp","id":1,"provider":"email","allow_password_change":false,"name":null,"nickname":null,"image":null,"created_at":"2021-06-06T13:04:28.277Z","updated_at":"2021-06-06T13:04:28.480Z","type":"user"}}%
+
+```
+
+### Login with curl
+
+```bash
+
+curl http://localhost:3000/auth/sign_in -X POST -H "Accept: application/vnd.api+json" -H "Content-Type: application/json" -d '{ "email": "alanlogin@empresa.corp", "password": "12345678" }'
+#
+# Result from command curl
+# {"data":{"email":"alanlogin@empresa.corp","uid":"alanlogin@empresa.corp","id":1,"provider":"email","allow_password_change":false,"name":null,"nickname":null,"image":null,"type":"user"}}% 
+
+```
+
+### Orther url
+
+```bash
+curl http://localhost:3000/kinds -H "Accept: application/vnd.api+json"
+#
+#
+# {"errors":["Para continuar, faça login ou registre-se."]}%
+
+# Use -i and -v on sign_in
+curl http://localhost:3000/auth/sign_in -i -v -X POST -H "Accept: application/vnd.api+json" -H "Content-Type: application/json" -d '{ "email": "alanlogin@empresa.corp", "password": "12345678" }'
+
+# Use on header access-token, client, uid and too option -v
+
+curl http://localhost:3000/kinds -H "Accept: application/vnd.api+json" -H "access-token: 66x5vOVQshrpPIuUUOp8cA" -H "client: chgwxR-fFXfvjRd53MbsVQ" -H "uid: alanlogin@empresa.corp" -v
+
+*   Trying ::1...
+* TCP_NODELAY set
+* Connected to localhost (::1) port 3000 (#0)
+> GET /kinds HTTP/1.1
+> Host: localhost:3000
+> User-Agent: curl/7.64.1
+> Accept: application/vnd.api+json
+> access-token: 66x5vOVQshrpPIuUUOp8cA
+> client: chgwxR-fFXfvjRd53MbsVQ
+> uid: alanlogin@empresa.corp
+> 
+< HTTP/1.1 200 OK
+< X-Frame-Options: SAMEORIGIN
+< X-XSS-Protection: 1; mode=block
+< X-Content-Type-Options: nosniff
+< X-Download-Options: noopen
+< X-Permitted-Cross-Domain-Policies: none
+< Referrer-Policy: strict-origin-when-cross-origin
+< Content-Type: application/vnd.api+json; charset=utf-8
+< Vary: Accept, Origin
+< access-token: 0ZpcTagQBtujJ8bMISw4oQ
+< token-type: Bearer
+< client: chgwxR-fFXfvjRd53MbsVQ
+< expiry: 1624196424
+< uid: alanlogin@empresa.corp
+< ETag: W/"03d9aa24cc1f04b7fcea4e30d530f73c"
+< Cache-Control: max-age=0, private, must-revalidate
+< X-Request-Id: 22834807-98bf-44c4-8458-0aefe43cafbe
+< X-Runtime: 0.289410
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+{"data":[{"id":"1","type":"kinds","attributes":{"description":"Friend"}},{"id":"2","type":"kinds","attributes":{"description":"Commercial"}},{"id":"3","type":"kinds","attributes":{"description":"Known"}}]}* Closing connection 0
+
+```
+
+### You saw that the token return data are different
+
+You saw that the token return data are different and if you look at the terminal, an update has occurred.
+
+```bash
+10:40:24 web.1  |   User Update (0.5ms)  UPDATE "users" SET "tokens" =?, "updated_at" = ? WHERE "users"."id" = ? ...
+
+```
+
+
+
+
 ---
 This README would normally document whatever steps are necessary to get the
 application up and running.
